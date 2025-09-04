@@ -1,3 +1,10 @@
 # Locale Tool Dependencies
-# No external packages required - uses only Python standard library
 # Python 3.7+ required for f-strings and type hints
+
+# Flask API Dependencies
+Flask==2.3.3
+Flask-CORS==4.0.0
+Flask-RESTX==1.3.0
+
+# GUI Tool Dependencies (for locale_tool)
+# No external packages required - uses only Python standard library
