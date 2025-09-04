@@ -1,5 +1,5 @@
 [phases.setup]
-nixPkgs = ["python3", "gcc"]
+nixPkgs = ["python3"]
 
 [phases.install]
 cmds = ["pip install -r requirements.txt"]
@@ -8,4 +8,4 @@ cmds = ["pip install -r requirements.txt"]
 cmds = ["echo 'Build complete'"]
 
 [start]
-cmd = "python main.py"
+cmd = "python app.py"
