@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-WSGI entry point for Gunicorn
+WSGI entry point for Railway
 """
 
 import os
@@ -12,7 +12,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
 # Import the Flask app
 from api.app import app
 
-# This is what Gunicorn will import
+# This is what Railway will import
 application = app
 
 if __name__ == "__main__":
@@ -21,4 +21,7 @@ if __name__ == "__main__":
     # Use debug=False for production
     debug = os.environ.get('FLASK_ENV') == 'development'
     
-    app.run(debug=debug, host='0.0.0.0', port=port)
+    print(f"Starting WSGI app on port {port}")
+    print(f"Debug mode: {debug}")
+    
+    app.run(debug=debug, host='0.0.0.0', port=port, threaded=True)

@@ -21,4 +21,8 @@ if __name__ == '__main__':
     # Use debug=False for production
     debug = os.environ.get('FLASK_ENV') == 'development'
     
-    app.run(debug=debug, host='0.0.0.0', port=port)
+    print(f"Starting Flask app on port {port}")
+    print(f"Debug mode: {debug}")
+    print(f"Environment: {os.environ.get('FLASK_ENV', 'production')}")
+    
+    app.run(debug=debug, host='0.0.0.0', port=port, threaded=True)
