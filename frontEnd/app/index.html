@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locale Tool - Korean Text Processor</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' x='8' font-size='48' font-family='Arial, sans-serif'%3E%F0%9F%97%BA%EF%B8%8F%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-language"></i>
+                    <h1>Locale Tool</h1>
+                </div>
+                <p class="subtitle">Korean Text Localization Processor</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="features-grid">
+                <!-- Left Feature: Find Korean Text -->
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h2>Find Korean Text</h2>
+                        <p>Upload a TSX file to detect untemplated Korean text</p>
+                    </div>
+                    
+                    <div class="upload-section">
+                        <div class="upload-area" id="findUploadArea">
+                            <div class="upload-content">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drop your TSX file here or click to browse</p>
+                                <span class="file-types">Supported: .tsx files</span>
+                            </div>
+                            <input type="file" id="findFileInput" accept=".tsx" hidden>
+                        </div>
+                        
+                        <div class="template-selection">
+                            <label for="findTemplateType">Template Type:</label>
+                            <p style="color: gray; font-size: 12px;">BVT Template is temporarily disabled. Only BT Template is available.</p>
+                            <select id="findTemplateType">
+                                <option value="bt">BT Template</option>
+                                <option value="bvt" disabled>BVT Template</option>
+                            </select>
+                        </div>
+                        
+                        <button class="btn btn-primary" id="findBtn" disabled>
+                            <i class="fas fa-search"></i>
+                            Find Korean Text
+                        </button>
+                    </div>
+                    
+                    <div class="results-section" id="findResults" style="display: none;">
+                        <h3>Search Results</h3>
+                        <div class="results-content" id="findResultsContent">
+                            <!-- Results will be populated here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Feature: Apply Translation -->
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <h2>Apply Translation</h2>
+                        <p>Upload a TSX file to apply localization templates</p>
+                    </div>
+                    
+                    <div class="upload-section">
+                        <div class="upload-area" id="applyUploadArea">
+                            <div class="upload-content">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drop your TSX file here or click to browse</p>
+                                <span class="file-types">Supported: .tsx files</span>
+                            </div>
+                            <input type="file" id="applyFileInput" accept=".tsx" hidden>
+                        </div>
+                        
+                        <div class="template-selection">
+                            <label for="applyTemplateType">Template Type:</label>
+                            <p style="color: gray; font-size: 12px;">BVT Template is temporarily disabled. Only BT Template is available.</p>
+                            <select id="applyTemplateType">
+                                <option value="bt">BT Template</option>
+                                <option value="bvt" disabled>BVT Template</option>
+                            </select>
+                        </div>
+                        
+                        <button class="btn btn-success" id="applyBtn" disabled>
+                            <i class="fas fa-magic"></i>
+                            Apply Translation
+                        </button>
+                    </div>
+                    
+                    <div class="results-section" id="applyResults" style="display: none;">
+                        <h3>Translation Results</h3>
+                        <div class="results-content" id="applyResultsContent">
+                            <!-- Results will be populated here -->
+                        </div>
+                        <div class="download-section" id="downloadSection" style="display: none;">
+                            <button class="btn btn-download" id="downloadBtn">
+                                <i class="fas fa-download"></i>
+                                Download Processed File
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Toast Notifications -->
+        <div class="toast-container" id="toastContainer"></div>
+
+        <!-- Loading Overlay -->
+        <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+            <div class="loading-spinner">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Processing your file...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="javascript.js"></script>
+</body>
+</html>
