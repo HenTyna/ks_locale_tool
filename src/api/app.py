@@ -232,7 +232,8 @@ class LocaleService:
                     
                     # Apply BT template
                     replacements_count += 1
-                    new_attr = f'{attr_name}={{{"bt(\"W#\", \"" + attr_value + "\")"}}}'
+                    bt_template = f'bt("W#", "{attr_value}")'
+                    new_attr = f'{attr_name}={{{bt_template}}}'
                     updated_content = updated_content[:match.start()] + new_attr + updated_content[match.end():]
             
             duration = time.time() - start_time
