@@ -1,8 +1,8 @@
 [build]
-builder = "dockerfile"
+builder = "nixpacks"
 
 [deploy]
-startCommand = "./start.sh"
+startCommand = "python app.py"
 healthcheckPath = "/api/health/"
 healthcheckTimeout = 100
 restartPolicyType = "on_failure"

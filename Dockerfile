@@ -25,6 +25,9 @@ RUN pip install --no-cache-dir --upgrade pip && \
 # Copy application code
 COPY src/ ./src/
 
+# Copy root entry point
+COPY app.py .
+
 # Copy startup script
 COPY start.sh .
 
