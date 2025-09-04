@@ -14,8 +14,8 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
-# Expose port (Railway will set PORT env var)
-EXPOSE $PORT
+# Expose port 80 as fallback (Railway will override with PORT env var)
+EXPOSE 80
 
 # Start the application
 CMD ["/start.sh"]
