@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Guide - Locale Tool</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' x='8' font-size='48' font-family='Arial, sans-serif'%3E%F0%9F%97%BA%EF%B8%8F%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .guide-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .guide-header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+        
+        .guide-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .guide-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .guide-content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            color: #2d3748;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section h3 {
+            color: #4a5568;
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .step {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
+        }
+        
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-right: 15px;
+        }
+        
+        .step-content {
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        
+        .code-block .comment {
+            color: #68d391;
+        }
+        
+        .code-block .string {
+            color: #fbb6ce;
+        }
+        
+        .code-block .template {
+            color: #f6ad55;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .feature-card {
+            background: #f0fff4;
+            border: 2px solid #48bb78;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        
+        .feature-card h4 {
+            color: #2f855a;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .warning-box {
+            background: #fff5f5;
+            border: 2px solid #f56565;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .warning-box h4 {
+            color: #c53030;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .info-box {
+            background: #ebf8ff;
+            border: 2px solid #3182ce;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .info-box h4 {
+            color: #2c5282;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+            margin-bottom: 30px;
+        }
+        
+        .back-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .template-example {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .before-after {
+            background: #f7fafc;
+            border-radius: 10px;
+            padding: 15px;
+        }
+        
+        .before-after h5 {
+            color: #4a5568;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        @media (max-width: 768px) {
+            .template-example {
+                grid-template-columns: 1fr;
+            }
+            
+            .guide-content {
+                padding: 20px;
+            }
+            
+            .guide-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="guide-container">
+            <div class="guide-header">
+                <h1><i class="fas fa-book"></i> User Guide</h1>
+                <p>Complete guide to using the Korean Text Localization Processor</p>
+            </div>
+            
+            <div class="guide-content">
+                <a href="index.html" class="back-button">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Tool
+                </a>
+                
+                <div class="section">
+                    <h2><i class="fas fa-info-circle"></i> What is this Tool?</h2>
+                    <p>The Korean Text Localization Processor is an automated tool that helps developers localize Korean text in TSX/JSX files. It automatically detects Korean text and applies appropriate localization templates (BT or BVT) to make your code ready for internationalization.</p>
+                    
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <h4><i class="fas fa-search"></i> Smart Detection</h4>
+                            <p>Automatically finds Korean text in JSX elements, attributes, and variable assignments</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4><i class="fas fa-magic"></i> Template Application</h4>
+                            <p>Applies BT or BVT templates to untemplated Korean text</p>
+                        </div>
+                        <!-- <div class="feature-card">
+                            <h4><i class="fas fa-shield-alt"></i> Safe Processing</h4>
+                            <p>Creates backups and only processes untemplated text</p>
+                        </div> -->
+                        <div class="feature-card">
+                            <h4><i class="fas fa-download"></i> File Download</h4>
+                            <p>Download processed files with all Korean text properly templated</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2><i class="fas fa-play-circle"></i> How to Use the Tool</h2>
+                    
+                    <div class="step">
+                        <div class="step-content">
+                            <div class="step-number">1</div>
+                            <div>
+                                <h3>Upload Your TSX File</h3>
+                                <p>Click on the upload area or drag and drop your TSX file. The tool supports files up to 10MB in size.</p>
+                                <div class="info-box">
+                                    <h4><i class="fas fa-lightbulb"></i> Tip</h4>
+                                    <p>Make sure your file contains Korean text (한글) for the tool to process. Files without Korean text will show "No Korean text found" in the results.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-content">
+                            <div class="step-number">2</div>
+                            <div>
+                                <h3>Choose Template Type</h3>
+                                <p>Select between BT Template or BVT Template based on your localization needs:</p>
+                                
+                                <div class="template-example">
+                                    <div class="before-after">
+                                        <h5>BT Template</h5>
+                                        <p><strong>Use for:</strong> JSX elements and attributes</p>
+                                        <div class="code-block">
+                                            <span class="comment">// Before</span><br>
+                                            &lt;p&gt;<span class="string">한고어</span>&lt;/p&gt;<br><br>
+                                            <span class="comment">// After</span><br>
+                                            &lt;p&gt;<span class="template">{bt("W#", "한고어")}</span>&lt;/p&gt;<br><br>
+                                        </div>
+                                    </div>
+                                    <div class="before-after">
+                                        <h5>BVT Template</h5>
+                                        <p><strong>Use for:</strong> Variable assignments</p>
+                                        <div class="code-block">
+                                            <span class="comment">// Before</span><br>
+                                            const name = <span class="string">"한고어"</span>;<br><br>
+                                            <span class="comment">// After</span><br>
+                                            const name = <span class="template">{bvt(name)}</span>;
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-content">
+                            <div class="step-number">3</div>
+                            <div>
+                                <h3>Search for Korean Text (Optional)</h3>
+                                <p>Click "Find Korean Text" to see what Korean text will be processed without making any changes to your file. This helps you preview the results before applying templates.</p>
+                                <div class="info-box">
+                                    <h4><i class="fas fa-eye"></i> Preview Results</h4>
+                                    <p>The search results will show you the exact Korean text found, its position in the file, and how many elements will be processed.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-content">
+                            <div class="step-number">4</div>
+                            <div>
+                                <h3>Apply Translation Templates</h3>
+                                <p>Click "Apply Translation" to process your file and apply the selected template to all untemplated Korean text.</p>
+                                <div class="warning-box">
+                                    <h4><i class="fas fa-exclamation-triangle"></i> Important</h4>
+                                    <p>The tool only processes Korean text that doesn't already have templates. It will skip text that's already wrapped in {bt()} or {bvt()} templates.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-content">
+                            <div class="step-number">5</div>
+                            <div>
+                                <h3>Download Processed File</h3>
+                                <p>After successful processing, click "Download Processed File" to get your updated TSX file with all Korean text properly templated.</p>
+                                <div class="info-box">
+                                    <h4><i class="fas fa-download"></i> File Naming</h4>
+                                    <p>The downloaded file will be named "processed_[original_filename].tsx" to distinguish it from your original file.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2><i class="fas fa-code"></i> Template Examples</h2>
+                    
+                    <h3><i class="fas fa-tag"></i> BT Template Examples</h3>
+                    <div class="code-block">
+<span class="comment">// JSX Element Content</span><br>
+<span class="comment">// Before:</span><br>
+&lt;h1&gt;<span class="string">제목</span>&lt;/h1&gt;<br>
+&lt;p&gt;<span class="string">내용입니다</span>&lt;/p&gt;<br><br>
+<span class="comment">// After:</span><br>
+&lt;h1&gt;<span class="template">{bt("W#", "제목")}</span>&lt;/h1&gt;<br>
+&lt;p&gt;<span class="template">{bt("W#", "내용입니다")}</span>&lt;/p&gt;<br><br>
+<span class="comment">// JSX Attributes</span><br>
+<span class="comment">// Before:</span><br>
+&lt;input placeholder=<span class="string">"입력하세요"</span> /&gt;<br>
+&lt;button title=<span class="string">"클릭하세요"</span>&gt;<span class="string">버튼</span>&lt;/button&gt;<br><br>
+<span class="comment">// After:</span><br>
+&lt;input placeholder={<span class="template">{bt("W#", "입력하세요")}</span>} /&gt;<br>
+&lt;button title={<span class="template">{bt("W#", "클릭하세요")}</span>}&gt;<span class="template">{bt("W#", "버튼")}</span>&lt;/button&gt;
+                    </div>
+                    
+                    <h3><i class="fas fa-variable"></i> BVT Template Examples (Holding)</h3>
+                    <div class="code-block">
+<span class="comment">// Variable Assignments</span><br>
+<span class="comment">// Before:</span><br>
+const message = <span class="string">"안녕하세요"</span>;<br>
+const title = <span class="string">"제목"</span>;<br><br>
+<span class="comment">// After:</span><br>
+const message = <span class="template">{bvt(message)}</span>;<br>
+const title = <span class="template">{bvt(title)}</span>;<br><br>
+<span class="comment">// Object Properties</span><br>
+<span class="comment">// Before:</span><br>
+const config = {<br>
+&nbsp;&nbsp;name: <span class="string">"설정"</span>,<br>
+&nbsp;&nbsp;description: <span class="string">"설명입니다"</span><br>
+};<br><br>
+<span class="comment">// After:</span><br>
+const config = {<br>
+&nbsp;&nbsp;name: <span class="template">{bvt(name)}</span>,<br>
+&nbsp;&nbsp;description: <span class="template">{bvt(description)}</span><br>
+};
+                    </div>
+                </div>
+                
+                <!-- <div class="section">
+                    <h2><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+                    
+                    <h3><i class="fas fa-file"></i> File Support</h3>
+                    <p><strong>Q: What file types are supported?</strong><br>
+                    A: The tool currently supports TSX files (.tsx extension). Make sure your file contains Korean text for processing.</p>
+                    
+                    <p><strong>Q: What's the maximum file size?</strong><br>
+                    A: Files up to 10MB are supported. Larger files may cause processing timeouts.</p>
+                    
+                    <h3><i class="fas fa-language"></i> Language Support</h3>
+                    <p><strong>Q: Does this work with other languages?</strong><br>
+                    A: Currently, the tool is specifically designed for Korean text (한글). It detects Korean characters using Unicode ranges (가-힣).</p>
+                    
+                    <h3><i class="fas fa-shield-alt"></i> Safety & Backups</h3>
+                    <p><strong>Q: Will my original file be modified?</strong><br>
+                    A: No, your original file remains unchanged. The tool creates a new processed file for download.</p>
+                    
+                    <p><strong>Q: What if some Korean text already has templates?</strong><br>
+                    A: The tool is smart enough to skip Korean text that's already wrapped in {bt()} or {bvt()} templates.</p>
+                    
+                    <h3><i class="fas fa-cog"></i> Technical Questions</h3>
+                    <p><strong>Q: Why is BVT Template disabled?</strong><br>
+                    A: BVT Template is temporarily disabled for maintenance. Only BT Template is currently available.</p>
+                    
+                    <p><strong>Q: What if the processing fails?</strong><br>
+                    A: Check that your file contains Korean text and is properly formatted. The tool will show error messages if there are issues.</p>
+                </div> -->
+                
+                <div class="section">
+                    <h2><i class="fas fa-exclamation-triangle"></i> Important Notes</h2>
+                    
+                    <div class="warning-box">
+                        <h4><i class="fas fa-info-circle"></i> Current Limitations</h4>
+                        <ul>
+                            <li>BVT Template is temporarily disabled - only BT Template is available</li>
+                            <li>Only processes Korean text (한글) - other languages are not supported</li>
+                            <li>Maximum file size is 10MB</li>
+                            <li>Only supports TSX file format</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-box">
+                        <h4><i class="fas fa-lightbulb"></i> Best Practices</h4>
+                        <ul>
+                            <li>Always preview results using "Find Korean Text" before applying templates</li>
+                            <li>Keep backups of your original files</li>
+                            <li>Test the processed file in your development environment</li>
+                            <li>Use BT Template for JSX elements and attributes</li>
+                            <li>Use BVT Template for variable assignments (when available)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2><i class="fas fa-life-ring"></i> Need Help?</h2>
+                    <p>If you encounter any issues or have questions about using the tool:</p>
+                    <ul>
+                        <li>Check that your file contains Korean text</li>
+                        <li>Ensure your file is a valid TSX file</li>
+                        <li>Try with a smaller file if you're experiencing timeouts</li>
+                        <li>Make sure you have a stable internet connection</li>
+                    </ul>
+                    
+                    <div class="info-box">
+                        <h4><i class="fas fa-rocket"></i> Ready to Get Started?</h4>
+                        <p>Now that you understand how the tool works, go back to the main page and start processing your TSX files!</p>
+                        <a href="index.html" class="back-button" style="margin-top: 15px;">
+                            <i class="fas fa-arrow-right"></i>
+                            Start Using the Tool
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
